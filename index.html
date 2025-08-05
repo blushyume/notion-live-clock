@@ -6,54 +6,54 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      padding: 20px;
       background-color: #b4869f;
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Arial', sans-serif;
     }
 
     .clock {
       display: flex;
-      gap: 20px;
+      gap: 10px;
     }
 
     .card {
       background: #fff;
-      border-radius: 12px;
-      width: 100px;
-      height: 150px;
+      border-radius: 8px;
+      width: 80px;
+      height: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     .time {
-      font-size: 64px;
+      font-size: 40px;
       font-weight: bold;
       color: #000;
       line-height: 1;
     }
 
     .label {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       color: #000;
-      margin-top: 8px;
+      margin-top: 6px;
     }
   </style>
 </head>
 <body>
   <div class="clock">
     <div class="card">
-      <div class="time" id="hours">00</div>
-      <div class="label" id="ampm">AM</div>
+      <div class="time" id="hours">03</div>
+      <div class="label" id="ampm">PM</div>
     </div>
     <div class="card">
-      <div class="time" id="minutes">00</div>
+      <div class="time" id="minutes">28</div>
       <div class="label" id="day">SUNDAY</div>
     </div>
   </div>
