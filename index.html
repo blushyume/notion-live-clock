@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Flip Clock</title>
+  <meta charset="UTF-8">
+  <title>Animated Flip Clock</title>
   <style>
     body {
+      background-color: #4e4c67;
       margin: 0;
       padding: 20px;
-      background-color: #b4869f;
-      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
+      font-family: sans-serif;
     }
 
     .clock {
@@ -19,64 +19,47 @@
       gap: 10px;
     }
 
-    .card {
+    .flip {
+      position: relative;
+      width: 80px;
+      height: 100px;
       background: #fff;
       border-radius: 8px;
-      width: 80px;
-      height: 110px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
-    .time {
+    .flip .top,
+    .flip .bottom {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      line-height: 50px;
+      font-size: 40px;
+      color: #000;
+      font-weight: bold;
+      backface-visibility: hidden;
+    }
+
+    .flip .top {
+      top: 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .flip .bottom {
+      bottom: 0;
+      transform: rotateX(180deg);
+      border-top: 1px solid #ccc;
+    }
+
+    .flip .flip-card {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      left: 0;
+      background: #fff;
+      color: #000;
       font-size: 40px;
       font-weight: bold;
-      color: #000;
-      line-height: 1;
-    }
 
-    .label {
-      font-size: 12px;
-      font-weight: bold;
-      color: #000;
-      margin-top: 6px;
-    }
-  </style>
-</head>
-<body>
-  <div class="clock">
-    <div class="card">
-      <div class="time" id="hours">03</div>
-      <div class="label" id="ampm">PM</div>
-    </div>
-    <div class="card">
-      <div class="time" id="minutes">28</div>
-      <div class="label" id="day">SUNDAY</div>
-    </div>
-  </div>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      let h = now.getHours();
-      const m = now.getMinutes();
-      const day = now.toLocaleDateString('en-US', { weekday: 'long' });
-
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12;
-      h = h ? h : 12;
-
-      document.getElementById('hours').textContent = String(h).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-      document.getElementById('ampm').textContent = ampm;
-      document.getElementById('day').textContent = day.toUpperCase();
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
-</body>
-</html>
